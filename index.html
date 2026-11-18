@@ -1,0 +1,94 @@
+<!--
+Project: North Carolina History Quiz
+Developer: Joshua Allgood
+File: index.html
+
+Description: An interactive educational web application designed to test users' knowledge
+of North Carolina history through multiple-choice questions.
+
+Technologies: HTML, CSS, JavaScript
+
+File Responsibilities:
+    - Define the application's HTML structure.
+    - Display quiz questions and answer buttons.
+    - Provide navigation and progress tracking.
+    - Connect external CSS and JavaScript files.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>North Carolina History Quiz</title>
+
+        <!-- External CSS and JavaScript files -->
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+
+    <body>
+
+        <!-- Main Application
+             Contains the primary quiz interface.
+        -->
+
+        <main>
+
+            <!-- Application Header -->
+            <header>
+                <h1>North Carolina History Quiz</h1>
+                <p>How well do you know the Tar Heel State?</p>
+            </header>
+
+            <!-- Quiz Container
+                 Holds questions, answers, and navigation
+            -->
+            <section id="quiz-container" aria-label="History Quiz">
+
+                <!-- Quiz Progress Indicator -->
+                <div id="quiz-progress">
+                    <p>Question <span id="question-number">1</span> of 10</p>
+                </div>
+
+                <!-- Current Question -->
+                <div id="question-container" aria-live="polite" aria-atomic="true">
+                    <h2 id="question-text">
+                        In what year did North Carolina become the 12th state?
+                    </h2>
+                </div>
+
+                <!-- Multiple-Choice Answers -->
+                <div id="answer-container">
+                    <button class="answer-btn" type="button">1776</button>
+                    <button class="answer-btn" type="button">1789</button>
+                    <button class="answer-btn" type="button">1792</button>
+                    <button class="answer-btn" type="button">1801</button>
+                </div>
+
+                <!-- Quiz Navigation -->
+                <div id="navigation-container">
+                    <button id="next-btn">Next Question</button>
+                </div>
+            </section>
+
+            <!-- Quiz Results Section -->
+             <section id="results-container"
+                      aria-label="Quiz Results" 
+                      aria-live="polite"
+                      aria-atomic="true"  
+                      hidden>
+                <h2>Quiz Complete!</h2>
+                <p id="final-score"></p>
+                <p id="result-message"></p>
+
+                <!-- Restart Quiz Button -->
+                 <button id="restart-btn" type="button">Restart Quiz</button>
+             </section>
+            
+        </main>
+
+
+    </body>
+    </html>

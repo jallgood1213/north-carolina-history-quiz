@@ -1,0 +1,282 @@
+/*
+    Project: North Carolina History Quiz
+    Developer: Joshua Allgood
+    File: style.css
+
+    Description: Provide the visual styling and responsive
+    layout for the North Carolina History Quiz application.
+
+    Technologies: CSS
+
+    File REsponsibilities:
+        - Define the applicaiton's color scheme.
+        - Style the main layout and quiz container.
+        - Style the questions, answer buttons, and navigation.
+        - Provide responsive layouts for different devices.
+        - Provide visual feedback for user interactions.
+*/
+
+/* 1.GLOBAL VARIABLES */
+
+:root {
+    --carolina-blue: #7BAFD4;
+    --dark-navy: #13293D;
+    --white: #FFFFFF;
+    --light-blue: #EAF2FB;
+    --text-gray: #4b5563;
+    --border-gray: #D6E4EE;
+}
+
+/* 2. GLOBAL RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 3. BODY STYLING -- Establishes the main page appearance. */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--light-blue);
+    color: var(--dark-navy);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* 4. MAIN APPLICATION CONTAINER -- Centers the quiz and controls its max-width. */
+
+main {
+    width: 90%;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(19, 41, 61, 0.12);
+}
+
+/* 5. Applicaiton Header -- Styles the quiz title and introductory text. */
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: var(--dark-navy);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+}
+
+/* 6. QUIZ PROGRESS INDICATOR -- Displays the current question number. */
+#quiz-progress {
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    background-color: var(--light-blue);
+    border-left: 4px solid var(--carolina-blue);
+    border-radius: 6px;
+}
+
+#quiz-progress p {
+    color: var(--dark-navy);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* 7. QUESTION CONTAINER -- Styles the currently displayed quiz question. */
+
+#question-container {
+    margin-bottom: 25px;
+}
+
+#question-text {
+    color: var(--dark-navy);
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+/* 8. ANSWER BUTTONS -- Styles the multiple-choice answer options. */
+
+#answer-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.answer-btn {
+    padding: 15px 20px;
+    background-color: var(--white);
+    color: var(--dark-navy);
+    border: 2px solid var(--border-gray);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.answer-btn:hover {
+    background-color: var(--light-blue);
+    border-color: var(--carolina-blue);
+}
+
+.answer-btn:focus-visible {
+    outline: 3px solid var(--dark-navy);
+    outline-offset: 3px;
+}
+
+/* 9. QUIZ NAVIGATION -- Styles the button used to advance through questions. */
+
+#navigation-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+#next-btn {
+    padding: 12px 25px;
+    background-color: var(--carolina-blue);
+    color: var(--dark-navy);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#next-btn:hover {
+    background-color: #5B9BC5;
+}
+
+#next-btn:focus-visible {
+    outline: 3px solid var(--dark-navy);
+    outline-offset: 3px;
+}
+
+/* 10. RESPONSIVE DESIGN -- Adjusts layout for smaller screens. */
+
+@media (max-width: 600px) {
+
+    /* Main Application Container */
+    main {
+        width: 95%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    /* Application Header */
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    /* Question Text */
+    #question-text {
+        font-size: 1.2rem;
+    }
+
+    /* Answer Button Layout */
+    #answer-container {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    /* Navigation Button */
+    #next-btn {
+        width: 100%;
+    }
+
+    /* Disable Navigation Button */
+    #next-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+}
+
+/* 11. ANSWER FEEDBACK -- Provides visual feedback for correct and incorrect answers. */
+
+.answer-btn.correct {
+    background-color: #D4EDDA;
+    border-color: #28A745;
+    color: #155724;
+}
+
+.answer-btn.incorrect {
+    background-color: #F8D7DA;
+    border-color: #DC3545;
+    color: #721C24;
+}
+
+.answer-btn:disabled {
+    cursor: not-allowed;
+}
+
+/* 12. QUIZ RESULTS -- Styles the final score and feedback message. */
+
+#results-container {
+    text-align: center;
+    padding: 30px 15px;
+}
+
+#results-container h2 {
+    color: var(--dark-navy);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+#final-score {
+    color: var(--carolina-blue);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+#result-message {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+}
+
+/* Perserve the HTML hidden attribute when CSS sets display properties. */
+[hidden] {
+    display: none !important;
+}
+
+/* 13. RESTART BUTTON -- Style the quiz restart control. */
+
+#restart-btn {
+    margin-top: 25px;
+    padding: 12px 30px;
+    background-color: var(--carolina-blue);
+    color: var(--dark-navy);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#restart-btn:hover {
+    background-color: #5B9BC5;
+}
+
+
+#restart-btn:focus-visible {
+    outline: 3px solid var(--dark-navy);
+    outline-offset: 3px;
+}
